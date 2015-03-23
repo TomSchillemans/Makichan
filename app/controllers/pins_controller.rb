@@ -2,6 +2,9 @@ class PinsController < ApplicationController
   # Finds a pin using a ID only on the specified methods
   before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
 
+  # Make sure a user is singed in before he can do stuff with the pins
+  before_action :authenticate_user!, except: [:index, :show]
+
   # Index action
   def index
     @pins = Pin.all.order('created_at DESC')
