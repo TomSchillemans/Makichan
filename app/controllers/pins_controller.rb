@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
   # Finds a pin using a ID only on the specified methods
-  before_action :find_pin, only: [:show, :edit, :update, :destroy]
+  before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
 
   # Index action
   def index
@@ -47,6 +47,11 @@ class PinsController < ApplicationController
   def destroy
     @pin.destroy
     redirect_to root_path
+  end
+
+  def upvote
+    @pin.upvote_by current_user
+    redirect_to :back
   end
 
   private
