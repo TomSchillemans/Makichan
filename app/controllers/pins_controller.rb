@@ -53,7 +53,12 @@ class PinsController < ApplicationController
   end
 
   def upvote
-    @pin.upvote_by current_user
+    if current_user.voted_for? @pin
+      @pin.unliked_by current_user
+    else
+      @pin.liked_by current_user
+    end
+
     redirect_to :back
   end
 
