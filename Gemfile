@@ -26,13 +26,29 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Hmtl markup language
 gem 'haml', '~> 4.0.6'
+
+
 gem 'bootstrap-sass', '~> 3.3.4.1'
+
+# Easy form generation
 gem 'simple_form', '~> 3.1.0'
+
+# User authentication
 gem 'devise', '~> 3.4.1'
+
+# Image uploading
 gem 'paperclip', '~> 4.2.1'
+
+# Javascript transistions
 gem 'masonry-rails', '~> 0.2.4'
+
+# Ads votable to models
 gem 'acts_as_votable', '~> 0.10.0'
+
+# Gravtastic is being used to pull user avatar images from Gravatar
+gem 'gravtastic'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
