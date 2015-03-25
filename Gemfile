@@ -29,7 +29,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Hmtl markup language
 gem 'haml', '~> 4.0.6'
 
-
 gem 'bootstrap-sass', '~> 3.3.4.1'
 
 # Easy form generation

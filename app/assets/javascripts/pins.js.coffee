@@ -11,10 +11,3 @@ ready = ->
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
-
-#
-#$ ->
-#  $('#pins').imagesLoaded ->
-#    $('#pins').masonry
-#      itemSelector: '.box'
-#      isFitWith: true
