@@ -17,6 +17,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "mixins";
 
 body {
   background: #E9E9E9;
@@ -109,6 +110,13 @@ nav {
     .user {
       padding-top: 8px;
     }
+  }
+}
+
+.avatar {
+  img {
+    border: 1px solid white;
+    @include border-radius(50%);
   }
 }
 

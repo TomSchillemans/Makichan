@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
 
   acts_as_voter
   gravtastic :default => 'identicon'
-  has_many :pins
+  has_many :pins, :dependent => :delete_all
 end
