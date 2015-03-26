@@ -13,17 +13,21 @@
       .panel-footer
         .row
           .col-md-6
-            %p.user.center
+            %p.user
+              Submitted by:
               %div.avatar
                 = image_tag @pin.user.gravatar_url
-                = @pin.user.username
+              = @pin.user.username
           .col-md-6
             .btn-group.pull-right
               = link_to like_pin_path(@pin), method: :put, class: 'btn btn-default' do
                 %span.glyphicon.glyphicon-heart
                   = @pin.get_upvotes.size
+
               - if user_signed_in? && current_user.email == @pin.user.email
+
                 = link_to 'Edit', edit_pin_path, class: 'btn btn-default'
+
                 = link_to 'Delete', pin_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 
       - disqus_thread
