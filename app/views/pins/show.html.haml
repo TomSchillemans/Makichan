@@ -1,33 +1,35 @@
 = content_for(:title, " #{@pin.title}")
+.row
+  #pins-sidebar
+    .col-md-4
+      .panel-default
+        .panel-heading
+          .btn-group.pull-right
+            - voted = current_user.voted_for? @pin
+            = link_to like_pin_path(@pin), method: :put, :class => 'btn btn-sm ' + (voted ? 'btn-success' : 'btn-default') do
+              %span.glyphicon.glyphicon-heart
+                = @pin.get_likes.size
 
-#pins_show.row.center
-  .col-md-8.col-md-offset-2
-    .panel-default
-      .panel-heading.pin_image
-        = image_tag @pin.image.url
+            - if user_signed_in? && current_user.email == @pin.user.email
+              = link_to ' Edit Pin', edit_pin_path, class: 'btn btn-default btn-sm'
+              = link_to 'Delete Pin', pin_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
+          %p.user
+            Submitted by:
+            %div.avatar
+              = image_tag @pin.user.gravatar_url
+            = @pin.user.username
 
-      .panel-body
-      %h1= @pin.title
-      %p.description= @pin.description
+        %div(class="panel-footer" style="margin-top: 0px;" )
 
-      .panel-footer
-        .row
-          .col-md-6
-            %p.user
-              Submitted by:
-              %div.avatar
-                = image_tag @pin.user.gravatar_url
-              = @pin.user.username
-          .col-md-6
-            .btn-group.pull-right
-              = link_to like_pin_path(@pin), method: :put, class: 'btn btn-default' do
-                %span.glyphicon.glyphicon-heart
-                  = @pin.get_upvotes.size
+  #pins_show.center
+    .col-md-8
+      .panel-default
+        .panel-heading.pin_image
+          = image_tag @pin.image.url
 
-              - if user_signed_in? && current_user.email == @pin.user.email
+        .panel-body
+        %h1= @pin.title
+        %p.description= @pin.description
 
-                = link_to 'Edit', edit_pin_path, class: 'btn btn-default'
-
-                = link_to 'Delete', pin_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
-
-      - disqus_thread
+        .panel-footer
+          - disqus_thread
