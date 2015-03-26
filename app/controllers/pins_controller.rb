@@ -2,7 +2,10 @@ class PinsController < ApplicationController
   # Finds a pin using a ID only on the specified methods
   before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
 
-  # Make sure a user is singed in before he can do stuff with the pins
+  # Redirects the user back if they are not the owner
+  before_action :user_is_owner, only: [:edit, :destroy]
+
+  # Make sure a user is signed in before he can do stuff with the pins
   before_action :authenticate_user!, except: [:index, :show]
 
   # Index action
@@ -64,12 +67,20 @@ class PinsController < ApplicationController
 
   private
 
+
+
   def pin_params
     params.require(:pin).permit(:title, :description, :image)
   end
 
   def find_pin
     @pin = Pin.find(params[:id])
+  end
+
+  def user_is_owner
+    if current_user.email != @pin.user.email
+      redirect_to root_path
+    end
   end
 
 end

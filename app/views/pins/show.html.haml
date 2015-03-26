@@ -6,13 +6,15 @@
         .panel-heading
           .btn-group.pull-right
             - voted = current_user.voted_for? @pin
-            = link_to like_pin_path(@pin), method: :put, :class => 'btn btn-sm ' + (voted ? 'btn-success' : 'btn-default') do
+            = link_to like_pin_path(@pin),
+                method: :put, :class => 'btn btn-sm ' + (voted ? 'btn-success' : 'btn-default') do
               %span.glyphicon.glyphicon-heart
                 = @pin.get_likes.size
 
             - if user_signed_in? && current_user.email == @pin.user.email
               = link_to ' Edit Pin', edit_pin_path, class: 'btn btn-default btn-sm'
-              = link_to 'Delete Pin', pin_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
+              = link_to 'Delete Pin', pin_path, method: :delete, data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger btn-sm'
           %p.user
             Submitted by:
             %div.avatar
