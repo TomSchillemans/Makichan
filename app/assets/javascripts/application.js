@@ -15,4 +15,6 @@
 //= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require disqus_rails
 //= require_tree .
+

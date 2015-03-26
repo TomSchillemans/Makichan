@@ -69,6 +69,9 @@ group :development, :test do
 
   # Use .env variables before starting server
   gem 'foreman'
+
+  # Disqus is an discussion platform
+  gem 'disqus_rails'
 end
 
 group :production do
