@@ -1,6 +1,6 @@
 = content_for(:title, " #{@pin.title}")
 .row
-  #pins-sidebar
+  #pins-sidebar.center
     .col-md-4
       .panel-default
         .panel-heading
@@ -27,7 +27,7 @@
     .col-md-8
       .panel-default
         .panel-heading.pin_image
-          = image_tag @pin.image.url
+          = image_tag @pin.image.url, class: 'img-responsive'
 
         .panel-body
         %h1= @pin.title
