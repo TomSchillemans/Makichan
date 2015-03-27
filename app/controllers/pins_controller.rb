@@ -79,7 +79,7 @@ class PinsController < ApplicationController
 
   def user_is_owner
     if current_user.email != @pin.user.email
-      redirect_to root_path
+      redirect_to root_path, notice: "You don't have access to this resource!"
     end
   end
 

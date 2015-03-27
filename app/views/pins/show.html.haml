@@ -5,9 +5,11 @@
       .panel-default
         .panel-heading
           .btn-group.pull-right
-            - voted = current_user.voted_for? @pin
+            - if user_signed_in?
+              - if current_user.voted_for? @pin
+                - @voted = true
             = link_to like_pin_path(@pin),
-                method: :put, :class => 'btn btn-sm ' + (voted ? 'btn-success' : 'btn-default') do
+                method: :put, :class => 'btn btn-sm ' + (@voted ? 'btn-success' : 'btn-default') do
               %span.glyphicon.glyphicon-heart
                 = @pin.get_likes.size
 
@@ -21,7 +23,7 @@
               = image_tag @pin.user.gravatar_url
             = @pin.user.username
 
-        %div(class="panel-footer" style="margin-top: 0px;" )
+        .panel-footer
 
   #pins_show.center
     .col-md-8
