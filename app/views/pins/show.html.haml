@@ -35,11 +35,16 @@
               = image_tag @pin.user.gravatar_url
             = @pin.user.username
 
-
         .panel-footer
-          %b Liked by:
-          - @pin.votes_for.voters.each do |user|
-            = user.username
+          .pin-liked-by
+            - if @pin.get_likes.size != 0
+              %b Liked by:
+              - @pin.votes_for.voters.each do |user|
+                = user.username
+          %b
+          - file_size = number_to_human_size(@pin.image_file_size, precision: 2)
+          = link_to "Download larger version (#{file_size.to_s} #{@pin.image_content_type.split('/').last.upcase})",
+            @pin.image.url, target: '_blank'
 
 
 
