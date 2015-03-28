@@ -17,13 +17,31 @@
               = link_to ' Edit Pin', edit_pin_path, class: 'btn btn-default btn-sm'
               = link_to 'Delete Pin', pin_path, method: :delete, data: { confirm: 'Are you sure?' },
                 class: 'btn btn-danger btn-sm'
+
+          %div(class="pins-info pull-right col-md-5 col-md-offset-4" style="margin-top: 15px; margin-botom: 15px;" )
+            %b Uploaded on:
+            %br
+            = @pin.created_at.to_s(format = :short)
+
+            %br
+            %br
+
+            %b Updated on:
+            %br
+            = @pin.updated_at.to_s(format = :short)
           %p.user
             Submitted by:
             %div.avatar
               = image_tag @pin.user.gravatar_url
             = @pin.user.username
 
+
         .panel-footer
+          %b Liked by:
+          - @pin.votes_for.voters.each do |user|
+            = user.username
+
+
 
   #pins_show.center
     .col-md-8
