@@ -38,6 +38,7 @@ gem 'devise', '~> 3.4.1'
 
 # Image uploading
 gem 'paperclip', '~> 4.2.1'
+gem 'paperclip-dropbox'
 
 # Javascript transistions
 gem 'masonry-rails', '~> 0.2.4'
