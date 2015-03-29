@@ -4,7 +4,7 @@
   #pins.transitions-enabled
     - @pins.each do |pin|
       .box.panel.panel-default
-        = link_to (image_tag pin.image.url), pin
+        = link_to (image_tag asset_url(pin.image.url)), pin
         .panel-body
           %h2= link_to pin.title, pin
           %p.user

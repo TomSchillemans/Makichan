@@ -52,7 +52,7 @@
     .col-md-8
       .panel-default
         .panel-heading.pin_image
-          = image_tag @pin.image.url, class: 'img-responsive'
+          = image_tag asset_url(@pin.image.url), class: 'img-responsive'
 
         .panel-body
         %h1= @pin.title

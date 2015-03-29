@@ -38,7 +38,8 @@ gem 'devise', '~> 3.4.1'
 
 # Image uploading
 gem 'paperclip', '~> 4.2.1'
-gem 'paperclip-dropbox'
+gem 'mini_magick'
+gem 'refile', require: ['refile/rails', 'refile/image_processing']
 
 # Javascript transistions
 gem 'masonry-rails', '~> 0.2.4'
