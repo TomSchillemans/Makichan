@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+
   # Generate devise routes from the users model. And add a username to register page.
   devise_for :users, :controllers => { :registrations => 'registrations'}
 
   root 'pins#index'
+
+  resources :users
 
   resources :pins do
     member do

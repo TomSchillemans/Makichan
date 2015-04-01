@@ -15,7 +15,7 @@ class PinsController < ApplicationController
 
   # Show action
   def show
-
+    # Imported automatically via before_action
   end
 
   # New action
@@ -66,8 +66,6 @@ class PinsController < ApplicationController
   end
 
   private
-
-
 
   def pin_params
     params.require(:pin).permit(:title, :description, :image)

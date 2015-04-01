@@ -8,7 +8,7 @@
         .panel-body
           %h2= link_to pin.title, pin
           %p.user
-            Submitten by:
+            Submitted by:
             %div.avatar
-              = image_tag pin.user.gravatar_url
-            = pin.user.username
+              = link_to (image_tag pin.user.gravatar_url), pin.user
+            = link_to pin.user.username, pin.user

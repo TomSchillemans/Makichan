@@ -15,6 +15,11 @@
             <p>To edit you avatar, please update it at <a href="http://gravatar.com" target="_blank">http://gravatar.com</a></p>
 
             <div class="form-inputs">
+
+              <div class="form-group">
+                <%= f.input :name, required: false, input_html: { class: 'form-control' } %>
+              </div>
+
               <div class="form-group">
                 <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' } %>
               </div>
@@ -27,20 +32,20 @@
                   <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
               <% end %>
               <div class="form-group">
-                <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, input_html: { class: 'form-control' } %>
+                <%= f.input :password, autocomplete: 'off', hint: "leave it blank if you don't want to change it", required: false, input_html: { class: 'form-control' } %>
               </div>
 
-              <div class="form-group"><%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, input_html: { class: 'form-control' } %>
+              <div class="form-group"><%= f.input :password, autocomplete: 'off', hint: "leave it blank if you don't want to change it", required: false, input_html: { class: 'form-control' } %>
                 <%= f.input :password_confirmation, required: false, input_html: { class: 'form-control' } %>
               </div>
 
               <div class="form-group">
-                <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { class: 'form-control' } %>
+                <%= f.input :current_password, hint: 'we need your current password to confirm your changes', required: true, input_html: { class: 'form-control' } %>
               </div>
             </div>
 
             <div class="form-actions">
-              <%= f.button :submit, "Update", class: 'btn btn-primary' %>
+              <%= f.button :submit, 'Update', class: 'btn btn-primary' %>
             </div>
         <% end %>
       </div>
