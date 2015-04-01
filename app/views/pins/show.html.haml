@@ -21,6 +21,7 @@
           %br
           %br
           %div(class="pins-info pull-right col-md- col-md-offset-5" style="margin-top: 15px; margin-botom: 15px;" )
+
             %b Uploaded on:
             %br
             = @pin.created_at.to_s(format = :short)
@@ -50,8 +51,6 @@
             - file_size = number_to_human_size(@pin.image_file_size, precision: 2)
             = link_to "Download larger version (#{file_size.to_s} #{@pin.image_content_type.split('/').last.upcase})",
               asset_url(@pin.image.url), target: '_blank'
-
-
 
   #pins_show.center
     .col-md-8
