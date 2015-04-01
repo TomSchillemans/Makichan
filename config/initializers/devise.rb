@@ -231,7 +231,7 @@ Devise.setup do |config|
 
   # ==> Confirmable
   # Setting for confirmable
-  config.reconfirmable = false
+  config.reconfirmable = true
   # config.allow_unconfirmed_access_for = 1.day
 
   # ==> OmniAuth
