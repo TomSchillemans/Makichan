@@ -20,7 +20,7 @@ class PinsController < ApplicationController
 
   # New action
   def new
-    @pin = current_user.pins.build
+    @pin = current_user.pins.buildC
   end
 
 
