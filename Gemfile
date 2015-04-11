@@ -40,13 +40,15 @@ gem 'devise', '~> 3.4.1'
 gem 'paperclip', '~> 4.2.1'
 gem 'mini_magick'
 gem 'refile', require: ['refile/rails', 'refile/image_processing']
-gem 'dropzonejs-rails' # Allows for file drop to upload
 
 # Javascript transistions
 gem 'masonry-rails', '~> 0.2.4'
 
 # Ads votable to models
 gem 'acts_as_votable', '~> 0.10.0'
+
+# Acts as taggable on
+gem 'acts-as-taggable-on', '~> 3.5.0'
 
 # Gravtastic is being used to pull user avatar images from Gravatar
 gem 'gravtastic'
