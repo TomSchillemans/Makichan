@@ -20,7 +20,7 @@ class PinsController < ApplicationController
 
   # New action
   def new
-    @pin = current_user.pins.buildC
+    @pin = current_user.pins.build
   end
 
 
@@ -68,7 +68,7 @@ class PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description, :image, :tagg_list)
+    params.require(:pin).permit(:title, :description, :image, :tag_list, :aditional_tag_list)
   end
 
   def find_pin
