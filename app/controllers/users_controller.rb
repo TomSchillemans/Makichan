@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show]
 
   def show
-    # Imported automatically via before_action
+    # Getting the user via the :find_user method
   end
 
   private
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find_by username: params[:username]
   end
 
 end

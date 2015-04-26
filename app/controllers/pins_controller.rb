@@ -55,6 +55,7 @@ class PinsController < ApplicationController
     redirect_to root_path
   end
 
+  #TODO Change this to an AJAX call
   def upvote
     if current_user.voted_for? @pin
       @pin.unliked_by current_user
@@ -77,6 +78,7 @@ class PinsController < ApplicationController
 
   def user_is_owner
     if current_user.email != @pin.user.email
+      #TODO Implement custom notices
       redirect_to root_path, notice: "You don't have access to this resource!"
     end
   end

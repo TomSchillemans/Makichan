@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   root 'pins#index'
 
+  # profile url: either, profile_url(username: <username>) or profile_path(username: <username>)
+  get 'u/:username' => 'users#show', as: :profile
   resources :users
 
-  resources :pins do
+  resources :pins, path: 'p' do
     member do
       put 'like', to: 'pins#upvote'
     end
