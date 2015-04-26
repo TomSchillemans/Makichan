@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require disqus_rails
-//= require dropzone
+//= require bootstrap-tagsinput
 //= require_tree .
+
 
