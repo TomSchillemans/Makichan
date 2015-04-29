@@ -6,6 +6,6 @@ class Pin < ActiveRecord::Base
 
   #TODO Add image source field
 
-  has_attached_file :image
+  has_attached_file :image, processors: [:thumbnail, :paperclip_optimizer]
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 end
