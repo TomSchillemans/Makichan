@@ -10,5 +10,5 @@
           %p.user
             Submitted by:
             %div.avatar
-              = link_to (image_tag pin.user.gravatar_url), pin.user
-            = link_to pin.user.username, pin.user
+              = link_to (image_tag pin.user.gravatar_url), profile_path(username: pin.user.username)
+            = link_to pin.user.username, profile_path(username: pin.user.username)

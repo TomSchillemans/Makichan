@@ -7,5 +7,8 @@ class User < ActiveRecord::Base
 
   acts_as_voter
   gravtastic :default => 'identicon'
+
   has_many :pins, :dependent => :delete_all
+  has_one :profile, :dependent => :delete
+  before_create :build_profile
 end

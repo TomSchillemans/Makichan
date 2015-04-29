@@ -4,7 +4,7 @@ class Pin < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable_on :tags, :aditional_tags
 
-  #TODO Add source field
+  #TODO Add image source field
 
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
